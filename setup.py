@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
+import codecs
 import os.path
 from setuptools import setup, find_packages
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 
+with codecs.open(os.path.join(PROJECT_DIR, 'README.rst'), encoding='utf-8') as f:
+    long_description = '\n' + f.read()
+
 setup(
     name='s3touch',
-    version='0.1.0',
+    version='0.1.1',
     packages=find_packages(exclude=('tests', 'tests.*')),
     install_requires=[
         'awscli==1.11.82',
@@ -21,6 +25,7 @@ setup(
     author='Thúlio Costa',
     author_email='contact@thul.io',
     description="Touch files on S3.",
+    long_description=long_description,
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Topic :: Software Development :: Libraries',
