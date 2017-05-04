@@ -10,9 +10,16 @@ with codecs.open(os.path.join(PROJECT_DIR, 'README.rst'), encoding='utf-8') as f
 
 setup(
     name='s3touch',
-    version='0.1.2',
-    py_modules=['cli'],
-    entry_points={"console_scripts": ["s3touch = cli:main"]},
+    version='0.1.3',
+    py_modules=['s3touch'],
+    install_requires=[
+        'awscli==1.11.82',
+        'click==6.7',
+    ],
+    entry_points={"console_scripts": ["s3touch = s3touch:main"]},
+    test_suite='tests',
+    tests_require=[
+    ],
     url='https://github.com/thulio/s3touch',
     license='MIT',
     author='Thúlio Costa',
